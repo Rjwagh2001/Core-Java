@@ -3834,9 +3834,8 @@ public class NetflixRecommendationDemo {
         System.out.println();
 
 
+-----------------------------------
 
-        
---------------------
 // Regular user gets content-based recommendations
         demonstrateUserRecommendations(engine, regularUser);
         System.out.println();
@@ -4787,7 +4786,581 @@ public class CollaborationManager extends DocumentHandler {
 
 // Microsoft Office Document Processing Chain
 public class OfficeDocumentProcessor {
-    private DocumentHandler handlerCh# Java OOP Mastery Guide: From Basic to Advanced
+    private DocumentHandler handlerChain;
+    
+    public OfficeDocumentProcessor() {
+        buildProcessingChain();
+    }
+    
+    private void buildProcessingChain() {
+        // Build the chain of responsibility
+        VirusScanner virusScanner = new VirusScanner();
+        ContentFilter contentFilter = new ContentFilter();
+        FormatConverter formatConverter = new FormatConverter();
+        VersionController versionController = new VersionController();
+        CollaborationManager collaborationManager = new CollaborationManager();
+        
+        // Set up the chain
+        virusScanner.setNextHandler(contentFilter);
+        contentFilter.setNextHandler(formatConverter);
+        formatConverter.setNextHandler(versionController);
+        versionController.setNextHandler(collaborationManager);
+        
+        this.handlerChain = virusScanner; // Start of chain
+    }
+    
+    public ProcessingResult processDocument(Document document, ProcessingRequest request) {
+        System.out.println("Processing document: " + document.getName() + 
+                          " with request type: " + request.getType());
+        System.out.println("=====================================");
+        
+        ProcessingResult result = handlerChain.handleDocument(document, request);
+        
+        System.out.println("=====================================");
+        System.out.println("Processing result: " + result.getStatus());
+        System.out.println();
+        
+        return result;
+    }
+    
+    // Process multiple requests for the same document
+    public List<ProcessingResult> processDocumentBatch(Document document, List<ProcessingRequest> requests) {
+        List<ProcessingResult> results = new ArrayList<>();
+        
+        for (ProcessingRequest request : requests) {
+            ProcessingResult result = processDocument(document, request);
+            results.add(result);
+            
+            // Stop processing if any critical operation fails
+            if (result.getStatus() == ProcessingStatus.BLOCKED || 
+                result.getStatus() == ProcessingStatus.ERROR) {
+                System.err.println("Stopping batch processing due to: " + result.getMessage());
+                break;
+            }
+        }
+        
+        return results;
+    }
+}
+
+// Supporting classes and enums
+enum ProcessingType {
+    SECURITY_SCAN, CONTENT_FILTERING, FORMAT_CONVERSION, VERSION_CONTROL, COLLABORATION
+}
+
+enum ProcessingStatus {
+    SUCCESS, BLOCKED, ERROR, UNHANDLED
+}
+
+class ProcessingResult {
+    private ProcessingStatus status;
+    private String message;
+    private Object data;
+    
+    private ProcessingResult(ProcessingStatus status, String message, Object data) {
+        this.status = status;
+        this.message = message;
+        this.data = data;
+    }
+    
+    public static ProcessingResult success(String message) {
+        return new ProcessingResult(ProcessingStatus.SUCCESS, message, null);
+    }
+    
+    public static ProcessingResult success(String message, Object data) {
+        return new ProcessingResult(ProcessingStatus.SUCCESS, message, data);
+    }
+    
+    public static ProcessingResult blocked(String message) {
+        return new ProcessingResult(ProcessingStatus.BLOCKED, message, null);
+    }
+    
+    public static ProcessingResult error(String message) {
+        return new ProcessingResult(ProcessingStatus.ERROR, message, null);
+    }
+    
+    public static ProcessingResult unhandled(String message) {
+        return new ProcessingResult(ProcessingStatus.UNHANDLED, message, null);
+    }
+    
+    // Getters
+    public ProcessingStatus getStatus() { return status; }
+    public String getMessage() { return message; }
+    public Object getData() { return data; }
+}
+
+// Usage demonstration
+public class OfficeDocumentProcessingDemo {
+    public void demonstrateChainOfResponsibility() {
+        OfficeDocumentProcessor processor = new OfficeDocumentProcessor();
+        
+        // Create a test document
+        Document document = new Document("Project_Proposal.docx", "docx", "This is a sample project proposal document...");
+        
+        System.out.println("=== Microsoft Office Document Processing Demo ===\n");
+        
+        // Test different processing requests
+        
+        // 1. Security scan
+        ProcessingRequest securityScan = new ProcessingRequest(ProcessingType.SECURITY_SCAN);
+        processor.processDocument(document, securityScan);
+        
+        // 2. Content filtering
+        ProcessingRequest contentFilter = new ProcessingRequest(ProcessingType.CONTENT_FILTERING);
+        processor.processDocument(document, contentFilter);
+        
+        // 3. Format conversion
+        FormatConversionRequest conversion = new FormatConversionRequest("pdf");
+        processor.processDocument(document, conversion);
+        
+        // 4. Version control
+        VersionControlRequest versionControl = new VersionControlRequest(
+            VersionOperation.CHECK_IN, "user123", "Updated project timeline"
+        );
+        processor.processDocument(document, versionControl);
+        
+        // 5. Collaboration
+        CollaborationRequest collaboration = new CollaborationRequest(
+            CollaborationOperation.SHARE,
+            Arrays.asList("alice@company.com", "bob@company.com"),
+            PermissionLevel.EDIT
+        );
+        processor.processDocument(document, collaboration);
+        
+        // 6. Batch processing
+        System.out.println("=== Batch Processing ===");
+        List<ProcessingRequest> batchRequests = Arrays.asList(
+            new ProcessingRequest(ProcessingType.SECURITY_SCAN),
+            new ProcessingRequest(ProcessingType.CONTENT_FILTERING),
+            new FormatConversionRequest("pdf")
+        );
+        
+        List<ProcessingResult> batchResults = processor.processDocumentBatch(document, batchRequests);
+        System.out.println("Batch processing completed with " + batchResults.size() + " results");
+    }
+}
+```
+
+---
+
+## Interview Questions for Top 1% Candidates
+
+### Basic OOP Concepts (Warmup)
+
+#### Q1: Explain the difference between `==` and `.equals()` in Java
+**Expected Answer:**
+- `==` compares references (memory addresses) for objects, values for primitives
+- `.equals()` compares actual content/value of objects
+- Must override `.equals()` and `.hashCode()` together
+- Example with String pool, custom objects
+
+#### Q2: Why is multiple inheritance not allowed in Java?
+**Expected Answer:**
+- Diamond problem ambiguity
+- Java uses interfaces to achieve multiple inheritance of type
+- Composition over inheritance principle
+- Example scenarios and workarounds
+
+### Intermediate Questions
+
+#### Q3: Design a thread-safe Singleton with lazy initialization
+```java
+// Expected implementation using double-checked locking or enum
+public enum ConfigurationManager {
+    INSTANCE;
+    
+    private Properties config;
+    
+    ConfigurationManager() {
+        config = loadConfiguration();
+    }
+    
+    public String getProperty(String key) {
+        return config.getProperty(key);
+    }
+    
+    private Properties loadConfiguration() {
+        // Load from file/database
+        return new Properties();
+    }
+}
+```
+
+#### Q4: Implement a generic LRU Cache
+```java
+public class LRUCache<K, V> {
+    private final int capacity;
+    private final Map<K, Node> map;
+    private final Node head, tail;
+    
+    private class Node {
+        K key;
+        V value;
+        Node prev, next;
+        
+        Node(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
+    
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        this.map = new HashMap<>();
+        this.head = new Node(null, null);
+        this.tail = new Node(null, null);
+        head.next = tail;
+        tail.prev = head;
+    }
+    
+    public V get(K key) {
+        Node node = map.get(key);
+        if (node == null) return null;
+        
+        moveToHead(node);
+        return node.value;
+    }
+    
+    public void put(K key, V value) {
+        Node node = map.get(key);
+        
+        if (node != null) {
+            node.value = value;
+            moveToHead(node);
+        } else {
+            Node newNode = new Node(key, value);
+            
+            if (map.size() >= capacity) {
+                Node tail = removeTail();
+                map.remove(tail.key);
+            }
+            
+            addToHead(newNode);
+            map.put(key, newNode);
+        }
+    }
+    
+    private void addToHead(Node node) {
+        node.prev = head;
+        node.next = head.next;
+        head.next.prev = node;
+        head.next = node;
+    }
+    
+    private void removeNode(Node node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+    
+    private void moveToHead(Node node) {
+        removeNode(node);
+        addToHead(node);
+    }
+    
+    private Node removeTail() {
+        Node lastNode = tail.prev;
+        removeNode(lastNode);
+        return lastNode;
+    }
+}
+```
+
+### Advanced Questions
+
+#### Q5: Design a distributed system for real-time notifications (like WhatsApp)
+**Expected Discussion Points:**
+- WebSocket connections for real-time communication
+- Message queues (Apache Kafka, RabbitMQ)
+- Database sharding strategies
+- Caching layers (Redis)
+- Load balancing
+- Microservices architecture
+- Eventual consistency
+- Push notification services
+
+```java
+// Sample architecture components
+public class NotificationService {
+    private MessageQueue messageQueue;
+    private ConnectionManager connectionManager;
+    private NotificationStorage storage;
+    
+    public void sendNotification(String userId, Notification notification) {
+        // 1. Store notification
+        storage.save(notification);
+        
+        // 2. Check if user is online
+        if (connectionManager.isUserOnline(userId)) {
+            // Send immediately via WebSocket
+            connectionManager.sendToUser(userId, notification);
+        } else {
+            // Queue for push notification
+            messageQueue.publish(new PushNotificationEvent(userId, notification));
+        }
+        
+        // 3. Handle message delivery confirmation
+        notification.setStatus(DeliveryStatus.SENT);
+        storage.update(notification);
+    }
+}
+```
+
+#### Q6: Implement a custom annotation processor
+```java
+// Custom annotation
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface Cacheable {
+    String value() default "";
+    int expiry() default 3600; // seconds
+}
+
+// Aspect for caching
+@Aspect
+@Component
+public class CacheAspect {
+    private CacheManager cacheManager;
+    
+    @Around("@annotation(cacheable)")
+    public Object handleCaching(ProceedingJoinPoint joinPoint, Cacheable cacheable) throws Throwable {
+        String cacheKey = generateCacheKey(joinPoint, cacheable.value());
+        
+        // Try to get from cache
+        Object cachedValue = cacheManager.get(cacheKey);
+        if (cachedValue != null) {
+            return cachedValue;
+        }
+        
+        // Execute method and cache result
+        Object result = joinPoint.proceed();
+        cacheManager.put(cacheKey, result, cacheable.expiry());
+        
+        return result;
+    }
+    
+    private String generateCacheKey(ProceedingJoinPoint joinPoint, String prefix) {
+        StringBuilder keyBuilder = new StringBuilder();
+        
+        if (!prefix.isEmpty()) {
+            keyBuilder.append(prefix).append(":");
+        }
+        
+        keyBuilder.append(joinPoint.getSignature().getName());
+        
+        for (Object arg : joinPoint.getArgs()) {
+            keyBuilder.append(":").append(arg.hashCode());
+        }
+        
+        return keyBuilder.toString();
+    }
+}
+```
+
+### System Design Questions
+
+#### Q7: Design a URL shortener like bit.ly
+**Expected Components:**
+```java
+// URL shortener service
+public class URLShortenerService {
+    private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    private static final int BASE = ALPHABET.length();
+    
+    private URLRepository urlRepository;
+    private CacheService cacheService;
+    private CounterService counterService;
+    
+    public String shortenURL(String longURL) {
+        // Check if URL already exists
+        String existingShortCode = urlRepository.findShortCodeByLongURL(longURL);
+        if (existingShortCode != null) {
+            return buildShortURL(existingShortCode);
+        }
+        
+        // Generate new short code
+        long counter = counterService.getNextCounter();
+        String shortCode = encodeToBase62(counter);
+        
+        // Store mapping
+        URLMapping mapping = new URLMapping(shortCode, longURL, new Date());
+        urlRepository.save(mapping);
+        
+        // Cache for quick access
+        cacheService.put(shortCode, longURL, 3600); // 1 hour TTL
+        
+        return buildShortURL(shortCode);
+    }
+    
+    public String expandURL(String shortCode) {
+        // Try cache first
+        String longURL = cacheService.get(shortCode);
+        if (longURL != null) {
+            recordAnalytics(shortCode);
+            return longURL;
+        }
+        
+        // Fallback to database
+        URLMapping mapping = urlRepository.findByShortCode(shortCode);
+        if (mapping != null) {
+            // Update cache
+            cacheService.put(shortCode, mapping.getLongURL(), 3600);
+            recordAnalytics(shortCode);
+            return mapping.getLongURL();
+        }
+        
+        throw new URLNotFoundException("Short URL not found: " + shortCode);
+    }
+    
+    private String encodeToBase62(long num) {
+        StringBuilder encoded = new StringBuilder();
+        
+        while (num > 0) {
+            encoded.append(ALPHABET.charAt((int) (num % BASE)));
+            num = num / BASE;
+        }
+        
+        return encoded.reverse().toString();
+    }
+    
+    private String buildShortURL(String shortCode) {
+        return "https://myshort.ly/" + shortCode;
+    }
+    
+    private void recordAnalytics(String shortCode) {
+        // Async analytics recording
+        CompletableFuture.runAsync(() -> {
+            AnalyticsService.recordClick(shortCode, new Date());
+        });
+    }
+}
+```
+
+### Performance and Optimization
+
+#### Q8: How would you optimize a slow database query in a high-traffic application?
+
+**Expected Approaches:**
+1. **Query Analysis:**
+   - Use EXPLAIN PLAN to understand execution
+   - Identify full table scans, missing indexes
+   - Check join conditions and WHERE clauses
+
+2. **Indexing Strategy:**
+   ```sql
+   -- Composite index for common query patterns
+   CREATE INDEX idx_user_activity_date ON user_activities(user_id, activity_date DESC);
+   
+   -- Partial index for frequently filtered data
+   CREATE INDEX idx_active_users ON users(created_date) WHERE status = 'ACTIVE';
+   ```
+
+3. **Caching Layers:**
+   ```java
+   @Service
+   public class UserService {
+       @Cacheable(value = "users", key = "#userId")
+       public User getUserById(String userId) {
+           return userRepository.findById(userId);
+       }
+       
+       @Cacheable(value = "userStats", key = "#userId", unless = "#result.lastUpdated < T(System).currentTimeMillis() - 300000")
+       public UserStatistics getUserStats(String userId) {
+           return statisticsService.calculateStats(userId);
+       }
+   }
+   ```
+
+4. **Database Optimization:**
+   - Connection pooling configuration
+   - Read replicas for read-heavy workloads
+   - Database sharding for horizontal scaling
+   - Query result pagination
+
+5. **Application-Level Optimizations:**
+   ```java
+   // Batch processing to reduce database calls
+   public void updateUserPreferences(List<UserPreference> preferences) {
+       int batchSize = 100;
+       for (int i = 0; i < preferences.size(); i += batchSize) {
+           List<UserPreference> batch = preferences.subList(i, 
+               Math.min(i + batchSize, preferences.size()));
+           userRepository.batchUpdate(batch);
+       }
+   }
+   
+   // Async processing for non-critical operations
+   @Async
+   public void updateUserAnalytics(String userId, UserActivity activity) {
+       analyticsService.processActivity(userId, activity);
+   }
+   ```
+
+### Behavioral and Problem-Solving
+
+#### Q9: You discover a critical bug in production affecting 10% of users. Walk me through your approach.
+
+**Expected Response Structure:**
+1. **Immediate Assessment (0-5 minutes)**
+   - Assess severity and impact
+   - Check monitoring dashboards
+   - Identify affected user segments
+
+2. **Incident Response (5-30 minutes)**
+   - Alert relevant team members
+   - Create incident channel/war room
+   - Implement immediate mitigation if possible
+
+3. **Root Cause Analysis (30 minutes - 2 hours)**
+   - Reproduce the issue in staging
+   - Analyze recent deployments
+   - Check error logs and stack traces
+
+4. **Fix Implementation**
+   ```java
+   // Example: Safe fix with feature flag
+   @Service
+   public class PaymentService {
+       @Value("${feature.new-payment-flow.enabled:false}")
+       private boolean newPaymentFlowEnabled;
+       
+       public PaymentResult processPayment(PaymentRequest request) {
+           if (newPaymentFlowEnabled && isEligibleForNewFlow(request)) {
+               return processPaymentNewFlow(request);
+           } else {
+               // Fall back to stable implementation
+               return processPaymentLegacy(request);
+           }
+       }
+   }
+   ```
+
+5. **Post-Incident Actions**
+   - Comprehensive testing
+   - Gradual rollout with monitoring
+   - Post-mortem documentation
+   - Process improvements
+
+### Conclusion
+
+This comprehensive guide covers Java OOP from basic concepts to advanced design patterns used in top tech companies. The examples are drawn from real-world systems at Google, Amazon, Netflix, Microsoft, and other industry leaders.
+
+**Key Takeaways for Top 1% Candidates:**
+1. **Master the Fundamentals** - Deep understanding of OOP principles
+2. **Apply Design Patterns** - Know when and how to use them appropriately  
+3. **Think at Scale** - Consider performance, maintainability, and scalability
+4. **Real-World Context** - Understand how concepts apply in production systems
+5. **Best Practices** - Follow SOLID principles and industry standards
+6. **Problem-Solving** - Approach complex problems systematically
+7. **Communication** - Explain technical concepts clearly
+
+**Next Steps:**
+- Practice implementing these patterns in your own projects
+- Study open-source codebases of major companies
+- Participate in system design discussions
+- Build portfolio projects demonstrating these concepts
+- Stay updated with emerging patterns and best practices
+
+Remember: Being in the top 1% isn't just about knowing syntax—it's about understanding how to architect robust, scalable, and maintainable systems that solve real-world problems.# Java OOP Mastery Guide: From Basic to Advanced
 *Become a Top 1% Candidate with Real-World Industry Examples*
 
 ## Table of Contents
