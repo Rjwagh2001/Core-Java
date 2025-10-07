@@ -26,10 +26,13 @@ public class Main {
 
         /*First Array List*/
         ArrayList<String> names=new ArrayList<>();
-        names.add("Rahul");
-        names.add("Rahul");
-        names.add("Rahul");
 
+        names.add("Rahul");
+        names.add("Rahul");
+        names.add("Rahul");
+        names.add("Rahul");
+        names.add("Rahul");
+        names.add("Rahul");
 
         LinkedList name=new LinkedList();
 
