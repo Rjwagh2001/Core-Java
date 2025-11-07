@@ -593,3 +593,83 @@ System.out.println("Are anagrams: " + isAnagram); // true
 6. **LinkedHashSet/LinkedHashMap**: Use when order matters
 
 **Practice these examples daily to build strong fundamentals!**
+
+
+------
+
+List<Integer> nums = new ArrayList<>(Arrays.asList(5, 2, 8, 1, 9));
+
+// ========================================
+// 1. LIST INTERFACE METHODS (Allowed on any List)
+// ========================================
+nums.add(10);              // Add element
+nums.add(0, 15);           // Add at index
+nums.get(2);               // Get element at index
+nums.set(1, 20);           // Replace element at index
+nums.remove(0);            // Remove by index
+nums.remove(Integer.valueOf(5)); // Remove by object
+nums.size();               // Get size
+nums.isEmpty();            // Check if empty
+nums.contains(8);          // Check if contains
+nums.indexOf(9);           // Find index of element
+nums.clear();              // Remove all elements
+nums.subList(1, 3);        // Get sublist
+
+// ========================================
+// 2. COLLECTIONS UTILITY CLASS METHODS
+// (Works on List, but NOT List interface methods)
+// ========================================
+Collections.sort(nums);              // Sort
+Collections.reverse(nums);           // Reverse
+Collections.min(nums);               // Find minimum
+Collections.max(nums);               // Find maximum
+Collections.frequency(nums, 5);      // Count occurrences
+Collections.shuffle(nums);           // Shuffle elements
+Collections.binarySearch(nums, 5);   // Binary search (on sorted list)
+Collections.swap(nums, 0, 1);        // Swap elements at indices
+Collections.fill(nums, 0);           // Replace all with value
+Collections.replaceAll(nums, 5, 10); // Replace specific value
+Collections.rotate(nums, 2);         // Rotate elements
+
+// ========================================
+// 3. ARRAYLIST-SPECIFIC METHODS
+// (Only available on ArrayList, NOT on List interface)
+// ========================================
+ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(5, 2, 8, 1, 9));
+
+arrayList.ensureCapacity(20);  // Increase capacity
+arrayList.trimToSize();        // Trim to current size
+arrayList.clone();             // Create shallow copy
+
+// ========================================
+// 4. COMMON CONFUSION EXAMPLE
+// ========================================
+
+// ❌ WRONG - This won't compile
+List<Integer> list = new ArrayList<>();
+// list.ensureCapacity(20); // Compile error! Not in List interface
+
+// ✅ CORRECT - Use ArrayList reference if you need ArrayList-specific methods
+ArrayList<Integer> arrayList2 = new ArrayList<>();
+arrayList2.ensureCapacity(20); // Works!
+
+// ✅ CORRECT - Cast if needed
+List<Integer> list2 = new ArrayList<>();
+((ArrayList<Integer>) list2).ensureCapacity(20); // Works but not recommended
+
+// ========================================
+// 5. CONVERSION OPERATIONS
+// ========================================
+List<Integer> nums2 = new ArrayList<>(Arrays.asList(5, 2, 8, 1, 9));
+
+// List to Array
+Integer[] array = nums2.toArray(new Integer[0]);  // List interface method ✅
+int[] primitiveArray = nums2.stream()
+                            .mapToInt(Integer::intValue)
+                            .toArray();            // Using Stream API ✅
+
+// Array to List
+Integer[] arr = {1, 2, 3};
+List<Integer> list3 = Arrays.asList(arr);         // Fixed size list
+List<Integer> list4 = new ArrayList<>(Arrays.asList(arr)); // Mutable list
+
