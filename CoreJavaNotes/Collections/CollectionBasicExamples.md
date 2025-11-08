@@ -594,8 +594,8 @@ System.out.println("Are anagrams: " + isAnagram); // true
 
 **Practice these examples daily to build strong fundamentals!**
 
+---
 
-------
 
 List<Integer> nums = new ArrayList<>(Arrays.asList(5, 2, 8, 1, 9));
 
