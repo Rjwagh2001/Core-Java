@@ -1,6 +1,9 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
+import com.collections.ArrayListProblemsSolution;
+import com.collections.DSAProblemSolving;
+
 public class Main {
 	public static void main(String[] args) {
 
@@ -252,6 +255,12 @@ public class Main {
 		 * =============================================================================
 		 * 
 		 */
+
+		ArrayListProblemsSolution starting = new ArrayListProblemsSolution();
+		starting.run();
+
+		DSAProblemSolving start1 = new DSAProblemSolving();
+		start1.run();
 
 	}
 
