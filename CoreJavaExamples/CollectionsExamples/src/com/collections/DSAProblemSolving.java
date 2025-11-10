@@ -1,13 +1,10 @@
 package com.collections;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class DSAProblemSolving {
 
 	public void run() {
 
-		System.out.println("Learning codeing Problems");
+		// System.out.println("Learning codeing Problems");
 
 		/* find maximum element in array */
 
@@ -35,7 +32,7 @@ public class DSAProblemSolving {
 		 * array.
 		 */
 
-		System.out.println("Learning codeing Problems");
+		// System.out.println("Learning codeing Problems");
 
 		/* find maximum element in array */
 //
@@ -76,38 +73,40 @@ public class DSAProblemSolving {
 		 */
 
 		//
-		int n;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the size of array:");
-		n = sc.nextInt();
+//		int n;
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Enter the size of array:");
+//		n = sc.nextInt();
+//
+//		ArrayList<Integer> numbers = new ArrayList<Integer>();
+//		for (int i = 0; i < n; i++) {
+//			numbers.add(sc.nextInt());
+//		}
+//
+//		boolean ascending = true;
+//		boolean descending = true;
+//
+//		for (int i = 0; i < n - 1; i++) {
+//
+//			if (numbers.get(i) > numbers.get(i + 1)) {
+//				ascending = false;
+//				break;
+//			}
+//		}
+//
+//		for (int j = 0; j < n - 1; j++) {
+//
+//			if (numbers.get(j) < numbers.get(j + 1)) {
+//				descending = false;
+//				break;
+//			}
+//		}
+//
+//		if (ascending == true || descending == true) {
+//			System.out.println("Ascednign or desccending");
+//		}
 
-		ArrayList<Integer> numbers = new ArrayList<Integer>();
-		for (int i = 0; i < n; i++) {
-			numbers.add(sc.nextInt());
-		}
-
-		boolean ascending = true;
-		boolean descending = true;
-
-		for (int i = 0; i < n - 1; i++) {
-
-			if (numbers.get(i) > numbers.get(i + 1)) {
-				ascending = false;
-				break;
-			}
-		}
-
-		for (int j = 0; j < n - 1; j++) {
-
-			if (numbers.get(j) < numbers.get(j + 1)) {
-				descending = false;
-				break;
-			}
-		}
-
-		if (ascending == true || descending == true) {
-			System.out.println("Ascednign or desccending");
-		}
+		/* */
 
 	}
 
