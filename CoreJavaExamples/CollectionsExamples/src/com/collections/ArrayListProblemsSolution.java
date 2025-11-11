@@ -1,11 +1,6 @@
 package com.collections;
 
 import java.util.ArrayList;
-
-/* PLease refer for below URL for Complete Problem statement:
- * https://github.com/Rjwagh2001/Core-Java/blob/main/CoreJavaNotes/Collections/ArrayListProblems.md
- */
-
 import java.util.Scanner;
 
 public class ArrayListProblemsSolution {
@@ -416,24 +411,372 @@ public class ArrayListProblemsSolution {
 		 * 
 		 */
 
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> numsadd = new ArrayList<>();
+//
+//		ArrayList<Integer> nums = new ArrayList<>();
+//		for (int i = 0; i < n; i++) {
+//			// adding element at specific end + insert at positon with existing
+//			nums.add(sc.nextInt());
+//		}
+//
+//		// for specific position value
+//		int value = sc.nextInt();
+//		int first = nums.getFirst();
+//		int last = nums.getLast();
+//		int getbyid = nums.get(value);
+//
+//		System.out.println(first + " " + last + " " + getbyid);
+//
+//	
+
+		/*
+		 * 
+		 * 
+		 * Problem 6.1: Element Exists (Basic)
+		 * 
+		 * 
+		 * Problem Statement: You are given an ArrayList of N integers and Q queries.
+		 * Each query contains a value V. For each query, print "YES" if V exists in the
+		 * list, otherwise "NO".
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> nums = new ArrayList<Integer>();
+//		for (int i = 0; i < n; i++) {
+//			nums.add(sc.nextInt());
+//		}
+//
+//		int q = sc.nextInt();
+//		for (int i = 0; i < q; i++) {
+//
+//			int ele = sc.nextInt();
+//
+//			if (nums.contains(Integer.valueOf(ele))) {
+//				System.out.println("Yes");
+//			} else {
+//				System.out.println("No");
+//			}
+//
+//		}
+
+		/*
+		 * 
+		 * 
+		 * Problem 6.2: First and Last Position (Medium)
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> nums = new ArrayList<Integer>();
+//		for (int i = 0; i < n; i++) {
+//			nums.add(sc.nextInt());
+//		}
+//
+//		int target = sc.nextInt();
+//
+//		int firstElement = nums.indexOf(target);
+//		int lastElement = nums.lastIndexOf(target);
+//
+//		System.out.println(firstElement + " " + lastElement);
+
+		/*
+		 * 
+		 * 
+		 * Search in Rotated Array (Advanced) class Problem6_3 { public static void
+		 * main(String[] args) { Scanner sc = new Scanner(System.in);
+		 * 
+		 * Check and resolve problem with Binary Search
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> nums = new ArrayList<Integer>();
+//		for (int i = 0; i < n; i++) {
+//			nums.add(sc.nextInt());
+//		}
+
+		/*
+		 * 
+		 * Problem 7.1: Basic Sort (Basic)Difficulty: Easy
+		 * 
+		 * Problem Statement: You are given N integers. Sort them in ascending order and
+		 * print. Then sort in descending order and print.
+		 * 
+		 * 
+		 *
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> nums = new ArrayList<Integer>();
+//		for (int i = 0; i < n; i++) {
+//			nums.add(sc.nextInt());
+//		}
+//
+//		Collections.sort(nums);
+//		for (int numbers : nums) {
+//			System.out.print(numbers);
+//		}
+//
+//		System.out.println();
+//		Collections.reverse(nums);
+//		for (int numbers : nums) {
+//			System.out.print(numbers);
+//		}
+
+		/*
+		 * Problem 7.2: Sort Students by Marks (Medium) Difficulty: Medium Problem
+		 * Statement: You have N students with their names and marks. Sort them by marks
+		 * in descending order. If two students have same marks, sort by name in
+		 * ascending order.
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//		ArrayList<Student> students = new ArrayList<>();
+//
+//		// How multiple student add
+//		for (int i = 0; i < n; i++) {
+//			String name = sc.next();
+//			int marks = sc.nextInt();
+//			students.add(new Student(name, marks));
+//		}
+//
+//		Collections.sort(students, (s1, s2) -> {
+//			if (s1.getMarks() != s2.getMarks()) {
+//				return s2.getMarks() - s1.getMarks(); // Descending by marks
+//			}
+//			return s1.getName().compareTo(s2.getName()); // Ascending by name
+//		});
+//
+//		for (Student s : students) {
+//			System.out.println(s.getName() + " " + s.getMarks());
+//		}
+//	}
+
+		/*
+		 * 
+		 * 
+		 * Problem 7.3: Multi-criteria Sorting (Advanced) Difficulty: Hard Problem
+		 * Statement: You have N employees with Name, Age, and Salary. Sort them by: Age
+		 * (ascending) If age same, by Salary (descending) If salary also same, by Name
+		 * (ascending)
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Employee> employee = new ArrayList<Employee>();
+//		for (int i = 0; i < n; i++) {
+//			String name = sc.next();
+//			int age = sc.nextInt();
+//			int salary = sc.nextInt();
+//
+//			employee.add(new Employee(name, age, salary));
+//
+//		}
+//
+//		Collections.sort(employee, (e1, e2) -> {
+//
+//			if (e1.age != e2.age) {
+//				return e2.age - e1.age; // descendin
+//			}
+//			if (e1.salary != e2.salary) {
+//				return e2.salary - e1.salary; // descending
+//			}
+//			return e1.name.compareTo(e2.name); // ascending
+//		});
+//
+//		System.out.println(employee);
+
+		/*
+		 * 
+		 * Problem B.1: Merge Two Sorted Lists Difficulty: MediumProblem Statement: You
+		 * are given two sorted ArrayLists. Merge them into one sorted ArrayList without
+		 * using Collections.sort().
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//		ArrayList<Integer> list1 = new ArrayList<>();
+//		for (int i = 0; i < n; i++) {
+//			list1.add(sc.nextInt());
+//		}
+//
+//		int m = sc.nextInt();
+//		ArrayList<Integer> list2 = new ArrayList<>();
+//		for (int i = 0; i < m; i++) {
+//			list2.add(sc.nextInt());
+//		}
+//
+//		ArrayList<Integer> merged = new ArrayList<>();
+//		int i = 0, j = 0;
+//
+//		while (i < list1.size() && j < list2.size()) {
+//			if (list1.get(i) <= list2.get(j)) {
+//				merged.add(list1.get(i));
+//				i++;
+//			} else {
+//				merged.add(list2.get(j));
+//				j++;
+//			}
+//		}
+//
+//		while (i < list1.size()) {
+//			merged.add(list1.get(i));
+//			i++;
+//		}
+//
+//		while (j < list2.size()) {
+//			merged.add(list2.get(j));
+//			j++;
+//		}
+//
+//		for (int num : merged) {
+//			System.out.print(num + " ");
+//		}
+
+		/*
+		 * 
+		 * 
+		 * 
+		 * Problem B.2: Remove Duplicates and Sort Difficulty: Medium
+		 * 
+		 * Problem Statement: Given N integers (possibly duplicates), remove duplicates
+		 * and sort in ascending order. Then print the K-th smallest unique element.
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> list1 = new ArrayList<>();
+//		for (int i = 0; i < n; i++) {
+//			list1.add(sc.nextInt());
+//		}
+//
+//		Collections.sort(list1);
+//		LinkedHashSet<Integer> unique = new LinkedHashSet<Integer>(list1);
+//
+//		for (int numbers : unique) {
+//			System.out.println(numbers + " ");
+//		}
+
+		/*
+		 * 
+		 * Problem B.3: Sliding Window Maximum Difficulty: Hard Problem Statement: Given
+		 * an ArrayList of N integers and window size K, find the maximum element in
+		 * each sliding window of size K.
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> nums = new ArrayList<Integer>();
+//		for (int i = 0; i < n; i++) {
+//			nums.add(sc.nextInt());
+//		}
+//
+//		ArrayList<Integer> result = new ArrayList<Integer>();
+//
+//		for (int i = 0; i < n - 2; i++) {
+//			System.out.print(i + " ");
+//
+//			int max = nums.get(i);
+//			for (int j = i; j < i + 3; j++) {
+//				System.out.print(nums.get(j) + " ");
+//
+//				if (max < nums.get(j)) {
+//					max = nums.get(j);
+//				}
+//
+//			}
+//			System.out.println();
+//			result.add(max);
+//		}
+//
+//		for (int numbers : result) {
+//			System.out.print(numbers + " ");
+//		}
+
+		/*
+		 * 
+		 * Problem 8.1: SubList Operations (Basic) Problem Statement: You are given an
+		 * ArrayList of N integers and Q queries. Each query contains two indices START
+		 * and END. For each query, extract and print the sublist from START (inclusive)
+		 * to END (exclusive).
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 
-		ArrayList<Integer> numsadd = new ArrayList<>();
-
-		ArrayList<Integer> nums = new ArrayList<>();
+		ArrayList<Integer> nums = new ArrayList<Integer>();
 		for (int i = 0; i < n; i++) {
-			// adding element at specific end + insert at positon with existing
 			nums.add(sc.nextInt());
 		}
 
-		// for specific position value
-		int value = sc.nextInt();
-		int first = nums.getFirst();
-		int last = nums.getLast();
-		int getbyid = nums.get(value);
+		int q = sc.nextInt();
+		for (int i = 0; i < q; i++) {
+			int x = sc.nextInt();
+			int y = sc.nextInt();
 
-		System.out.println(first + " " + last + " " + getbyid);
+			System.out.println(nums.subList(x - 1, y));
+		}
 
 	}
 
