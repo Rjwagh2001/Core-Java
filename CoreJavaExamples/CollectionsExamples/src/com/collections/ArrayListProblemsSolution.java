@@ -1,6 +1,7 @@
 package com.collections;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 public class ArrayListProblemsSolution {
@@ -762,22 +763,396 @@ public class ArrayListProblemsSolution {
 		 * 
 		 */
 
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> nums = new ArrayList<Integer>();
+//		for (int i = 0; i < n; i++) {
+//			nums.add(sc.nextInt());
+//		}
+//
+//		int q = sc.nextInt();
+//		for (int i = 0; i < q; i++) {
+//			int x = sc.nextInt();
+//			int y = sc.nextInt();
+//
+//			System.out.println(nums.subList(x - 1, y));
+//		}
+//		
+
+		/*
+		 * 
+		 * 
+		 * Problem 8.2: Clear and isEmpty Check (Basic) Difficulty: Easy Problem
+		 * Statement: You are given N integers to add to an ArrayList. After adding,
+		 * perform Q operations: "SIZE" - print current size "EMPTY" - print "YES" if
+		 * empty, "NO" otherwise "CLEAR" - clear all elements
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> nums = new ArrayList<Integer>();
+//		for (int i = 0; i < n; i++) {
+//			nums.add(sc.nextInt());
+//		}
+//
+//		int q = sc.nextInt();
+//		for (int i = 0; i < q; i++) {
+//			String operation = sc.next();
+//			if (operation.equals("SIZE")) {
+//				System.out.println(nums.size());
+//			} else if (operation.equals("EMPTY")) {
+//				if (nums.isEmpty()) {
+//					System.out.println("YES");
+//				} else {
+//					System.out.println("NO");
+//				}
+//			} else if (operation.equals("CLEAR")) {
+//				nums.clear();
+//				System.out.println(nums);
+//			} else {
+//				System.out.println("Provide correct Option");
+//			}
+//		}
+
+		/*
+		 * 
+		 * 
+		 * Problem 8.3: AddAll and RemoveAll (Medium)
+		 * 
+		 * Problem Statement: You have two ArrayLists A and B. Perform these operations:
+		 * 
+		 * Add all elements of B to A Print merged list Remove all elements from A that
+		 * exist in B Print final list
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> numsA = new ArrayList<>();
+//		for (int i = 0; i < n; i++) {
+//			numsA.add(sc.nextInt());
+//		}
+//
+//		int m = sc.nextInt();
+//
+//		ArrayList<Integer> numsB = new ArrayList<>();
+//		for (int i = 0; i < m; i++) {
+//			numsB.add(sc.nextInt());
+//		}
+//
+//		// adding all elements of b to a
+//		numsA.addAll(numsB);
+//
+//		for (int numbers : numsA) {
+//			System.out.print(numbers + " ");
+//		}
+//
+//		System.out.println(" ");
+//
+//		numsA.removeAll(numsB);
+//
+//		for (int numbers : numsA) {
+//			System.out.print(numbers + " ");
+//		}
+
+		/*
+		 * 
+		 * 
+		 * Problem 8.4: RetainAll Operation (Medium) Difficulty: Medium
+		 * 
+		 * Problem Statement: You have two ArrayLists A and B. Keep only those elements
+		 * in A that are present in B (intersection). Print the result. Input Format:
+		 * First line: N Second line: N integers for list A Third line: M Fourth line: M
+		 * integers for list B
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> numsA = new ArrayList<>();
+//		for (int i = 0; i < n; i++) {
+//			numsA.add(sc.nextInt());
+//		}
+//
+//		int m = sc.nextInt();
+//
+//		ArrayList<Integer> numsB = new ArrayList<>();
+//		for (int i = 0; i < m; i++) {
+//			numsB.add(sc.nextInt());
+//		}
+//
+//		ArrayList<Integer> result = new ArrayList<>();
+//
+//		// approach first o(n^2)
+////		for (int number : numsA) {
+////			for (int element : numsB) {
+////				if (element == number) {
+////					result.add(number);
+////				}
+////			}
+////		}
+//
+//		// second using methods o(n)
+////		Iterator<Integer> it = numsA.iterator();
+////		while (it.hasNext()) {
+////			int element = it.next();
+////			if (!numsB.contains(element)) {
+////				it.remove(); // safe — uses Iterator.remove()
+////			}
+////		}
+////
+////		for (int number : numsA) {
+////			System.out.print(number + " ");
+////		}
+//
+//		numsA.retainAll(numsB);
+//		for (int number : numsA) {
+//			System.out.print(number + " ");
+//		}
+
+		/*
+		 * 
+		 * 
+		 * Problem 8.5: Clone ArrayList (Medium) Difficulty: Medium
+		 * 
+		 * Problem Statement: You are given an ArrayList of N integers. Create a clone
+		 * of it, modify the original by doubling all values, then print both lists to
+		 * verify they are independent.
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//		ArrayList<Integer> original = new ArrayList<>();
+//		for (int i = 0; i < n; i++) {
+//			original.add(sc.nextInt());
+//		}
+//
+//		// Clone
+//		ArrayList<Integer> cloned = new ArrayList<>(original);
+//
+//		// Modify original
+//		for (int i = 0; i < original.size(); i++) {
+//			original.set(i, original.get(i) * 2);
+//		}
+//
+//		// Print both
+//		for (int num : original) {
+//			System.out.print(num + " ");
+//		}
+//		System.out.println();
+//
+//		for (int num : cloned) {
+//			System.out.print(num + " ");
+//		}
+
+		/*
+		 * 
+		 * Problem 8.6: ToArray Conversion (Basic) Difficulty: Easy
+		 * 
+		 * Problem Statement: You are given N integers in an ArrayList. Convert it to an
+		 * array and print:
+		 * 
+		 * Array elements Array length Middle element of array
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//
+//		int n = sc.nextInt();
+//
+//		ArrayList<Integer> list = new ArrayList<>();
+//		for (int i = 0; i < n; i++) {
+//			list.add(sc.nextInt());
+//		}
+//
+//		Integer[] array = list.toArray(new Integer[0]);
+//
+//		// Print array
+//		for (int num : array) {
+//			System.out.print(num + " ");
+//		}
+//		System.out.println();
+//
+//		// Print length
+//		System.out.println(array.length);
+//
+//		// Print middle element
+//		System.out.println(array[array.length / 2]);
+
+		/*
+		 * 
+		 * 
+		 * 
+		 * Problem 8.8: Equals and Compare Lists (Medium) Difficulty: Medium
+		 * 
+		 * Problem Statement: You are given two ArrayLists A and B. Check if they are:
+		 * 
+		 * Equal (same elements in same order) Same size Contain same elements (ignoring
+		 * order)
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//
+//		int n = sc.nextInt();
+//		ArrayList<Integer> listA = new ArrayList<>();
+//		for (int i = 0; i < n; i++) {
+//			listA.add(sc.nextInt());
+//		}
+//
+//		int m = sc.nextInt();
+//		ArrayList<Integer> listB = new ArrayList<>();
+//		for (int i = 0; i < m; i++) {
+//			listB.add(sc.nextInt());
+//		}
+//
+//		// Equal check
+//		System.out.println(listA.equals(listB) ? "EQUAL" : "NOT EQUAL");
+//
+//		// Size check
+//		System.out.println(n == m ? "SAME SIZE" : "DIFFERENT SIZE");
+//
+//		// → because every element of listB exists in listA.
+//		// Order doesn’t matter, duplicates are ignored for this check.
+//		System.out
+//				.println(listA.containsAll(listB) && listB.containsAll(listA) ? "SAME ELEMENTS" : "Different ELEMENTS");
+//
+//		// so asolve above duplicate not order matter use hashset
+//
+//		HashSet<Integer> set1 = new HashSet<>(listA);
+//		HashSet<Integer> set2 = new HashSet<>(listB);
+//		System.out.println(set1.equals(set2) ? "SAME ELEMENTS" : "Different ELEMENTS");
+
+		/*
+		 * 
+		 * 
+		 * 
+		 * Problem 8.9: ForEach and Iterator (Advanced) Difficulty: Hard
+		 * 
+		 * Problem Statement: You are given N integers in an ArrayList. Remove all
+		 * elements divisible by K using iterator, then print:
+		 * 
+		 * Elements removed Remaining elements Sum of remaining elements using forEach
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//		int k = sc.nextInt();
+//
+//		ArrayList<Integer> list = new ArrayList<>();
+//		for (int i = 0; i < n; i++) {
+//			list.add(sc.nextInt());
+//		}
+//
+//		int count = 0;
+//		Iterator<Integer> itr = list.iterator();
+//		while (itr.hasNext()) {
+//			int num = itr.next();
+//			if (num % k == 0) {
+//				itr.remove();
+//				count++;
+//			}
+//		}
+//
+//		System.out.println(count);
+//
+//		for (int num : list) {
+//			System.out.print(num + " ");
+//		}
+//		System.out.println();
+//
+//		// Sum using forEach
+//		int sum = 0;
+//		for (int num : list) {
+//			sum += num;
+//		}
+//		System.out.println(sum);
+
+		/*
+		 * 
+		 * 
+		 * 
+		 * Problem 8.10: ListIterator Bidirectional (Advanced) Difficulty: Hard
+		 * 
+		 * Problem Statement: You are given an ArrayList of N integers. Using
+		 * ListIterator:
+		 * 
+		 * Print elements forward Print elements backward Print elements at even indices
+		 * only
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
 		Scanner sc = new Scanner(System.in);
+
 		int n = sc.nextInt();
-
-		ArrayList<Integer> nums = new ArrayList<Integer>();
+		ArrayList<Integer> list = new ArrayList<>();
 		for (int i = 0; i < n; i++) {
-			nums.add(sc.nextInt());
+			list.add(sc.nextInt());
 		}
 
-		int q = sc.nextInt();
-		for (int i = 0; i < q; i++) {
-			int x = sc.nextInt();
-			int y = sc.nextInt();
-
-			System.out.println(nums.subList(x - 1, y));
+		// Forward
+		ListIterator<Integer> itr = list.listIterator();
+		while (itr.hasNext()) {
+			System.out.print(itr.next() + " ");
 		}
+		System.out.println();
 
+		// Backward
+		while (itr.hasPrevious()) {
+			System.out.print(itr.previous() + " ");
+		}
+		System.out.println();
+
+		// Even indices
+		for (int i = 0; i < list.size(); i += 2) {
+			System.out.print(list.get(i) + " ");
+		}
 	}
 
 }
