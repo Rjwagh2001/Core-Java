@@ -3,6 +3,7 @@
 
 import com.collections.ArrayListProblemsSolution;
 import com.collections.DSAProblemSolving;
+import com.collections.LinkedListProblemsSolution;
 
 public class Main {
 	public static void main(String[] args) {
@@ -255,6 +256,9 @@ public class Main {
 		 * =============================================================================
 		 * 
 		 */
+
+		LinkedListProblemsSolution start2 = new LinkedListProblemsSolution();
+		start2.run();
 
 		ArrayListProblemsSolution starting = new ArrayListProblemsSolution();
 		starting.run();

@@ -1,9 +1,5 @@
 package com.collections;
 
-import java.util.ArrayList;
-import java.util.ListIterator;
-import java.util.Scanner;
-
 public class ArrayListProblemsSolution {
 
 	public void run() {
@@ -1128,31 +1124,33 @@ public class ArrayListProblemsSolution {
 		 * 
 		 */
 
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
+//
+//		int n = sc.nextInt();
+//		ArrayList<Integer> list = new ArrayList<>();
+//		for (int i = 0; i < n; i++) {
+//			list.add(sc.nextInt());
+//		}
+//
+//		// Forward
+//		ListIterator<Integer> itr = list.listIterator();
+//		while (itr.hasNext()) {
+//			System.out.print(itr.next() + " ");
+//		}
+//		System.out.println();
+//
+//		// Backward
+//		while (itr.hasPrevious()) {
+//			System.out.print(itr.previous() + " ");
+//		}
+//		System.out.println();
+//
+//		// Even indices
+//		for (int i = 0; i < list.size(); i += 2) {
+//			System.out.print(list.get(i) + " ");
+//		}
+//		
 
-		int n = sc.nextInt();
-		ArrayList<Integer> list = new ArrayList<>();
-		for (int i = 0; i < n; i++) {
-			list.add(sc.nextInt());
-		}
-
-		// Forward
-		ListIterator<Integer> itr = list.listIterator();
-		while (itr.hasNext()) {
-			System.out.print(itr.next() + " ");
-		}
-		System.out.println();
-
-		// Backward
-		while (itr.hasPrevious()) {
-			System.out.print(itr.previous() + " ");
-		}
-		System.out.println();
-
-		// Even indices
-		for (int i = 0; i < list.size(); i += 2) {
-			System.out.print(list.get(i) + " ");
-		}
 	}
 
 }
