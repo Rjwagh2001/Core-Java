@@ -1,12 +1,10 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
-import com.collections.ArrayListProblemsSolution;
 import com.collections.DSAProblemSolving;
-import com.collections.LinkedListProblemsSolution;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 //		
 //		System.out.printf("Hello and welcome!");
@@ -257,11 +255,11 @@ public class Main {
 		 * 
 		 */
 
-		LinkedListProblemsSolution start2 = new LinkedListProblemsSolution();
-		start2.run();
-
-		ArrayListProblemsSolution starting = new ArrayListProblemsSolution();
-		starting.run();
+//		LinkedListProblemsSolution start2 = new LinkedListProblemsSolution();
+//		start2.run();
+//
+//		ArrayListProblemsSolution starting = new ArrayListProblemsSolution();
+//		starting.run();
 
 		DSAProblemSolving start1 = new DSAProblemSolving();
 		start1.run();

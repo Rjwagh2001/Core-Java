@@ -607,7 +607,7 @@ public class ArrayListProblemsSolution {
 //		Collections.sort(employee, (e1, e2) -> {
 //
 //			if (e1.age != e2.age) {
-//				return e2.age - e1.age; // descendin
+//				return e2.age - e1.age; // descending
 //			}
 //			if (e1.salary != e2.salary) {
 //				return e2.salary - e1.salary; // descending
