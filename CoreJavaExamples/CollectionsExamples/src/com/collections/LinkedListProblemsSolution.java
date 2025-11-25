@@ -422,5 +422,182 @@ public class LinkedListProblemsSolution {
 //				System.out.println(ans.removeFirst());
 //			}
 //		}
+
+		/**
+		 * 
+		 * 
+		 * 
+		 * Problem 3.3: Palindrome Checker (Advanced) Difficulty: Hard
+		 * 
+		 * Problem Statement: Check if a LinkedList is a palindrome by removing elements
+		 * from both ends and comparing them. Print "YES" if palindrome, else "NO" along
+		 * with first mismatching pair.
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		LinkedList<Integer> list = new LinkedList<Integer>();
+//
+//		for (int i = 0; i < n; i++) {
+//			list.add(sc.nextInt());
+//		}
+//
+//		boolean isplandrome = true;
+//		int i = 0;
+//		int j = list.size() - 1;
+//
+//
+//		while (i < j) {
+//			if (list.get(i) == list.get(j)) {
+//				i++;
+//				j--;
+//			} else {
+//				isplandrome = false;
+//				break;
+//			}
+//		}
+//
+//		System.out.println("Check for palandrome: " + isplandrome);
+
+		/**
+		 * 
+		 * 
+		 * 
+		 * Problem 4.1: Queue Peek Operations (Basic) Difficulty: Easy
+		 * 
+		 * Problem Statement: You have a queue with N elements. Answer Q queries:
+		 * 
+		 * "PEEKFIRST" - Print first element "PEEKLAST" - Print last element "SIZE" -
+		 * Print size
+		 * 
+		 * 
+		 * 
+		 * 
+		 * Sample Input:
+		 * 
+		 * 5 10 20 30 40 50 3 PEEKFIRST PEEKLAST SIZE
+		 * 
+		 * Sample Output:
+		 * 
+		 * 10 50 5
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		LinkedList<Integer> list = new LinkedList<Integer>();
+//
+//		for (int i = 0; i < n; i++) {
+//			list.add(sc.nextInt());
+//		}
+//
+//		int q = sc.nextInt();
+//		while (q != 0) {
+//
+//			String operation = sc.next();
+//
+//			switch (operation) {
+//
+//			case "PEEKFIRST":
+//				System.out.println(list.getFirst());
+//				break;
+//			case "PEEKLAST":
+//				System.out.println(list.getLast());
+//				break;
+//			case "SIZE":
+//				System.out.println(list.size());
+//				break;
+//			default:
+//				list.forEach(s -> {
+//					System.out.println(s);
+//				});
+//			}
+//
+//			q--;
+//		}
+
+		/**
+		 * 
+		 * 
+		 * 
+		 * Problem 4.2: Sliding Window Maximum (Medium) Difficulty: Medium
+		 * 
+		 * Problem Statement: Given N integers and window size K, find maximum in each
+		 * window using LinkedList operations.
+		 * 
+		 * 
+		 * 
+		 * 
+		 * Sample Input:
+		 * 
+		 * 7 3
+		 * 
+		 * 1 3 5 2 4 6 7
+		 * 
+		 * Sample Output:
+		 * 
+		 * 5 5 5 6 7
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		int k = sc.nextInt();
+//		;
+//		LinkedList<Integer> list = new LinkedList<Integer>();
+//
+//		for (int i = 0; i < n; i++) {
+//			list.add(sc.nextInt());
+//		}
+//
+//		for (int i = 0; i <= n - k; i++) {
+//			int maxNumber = Integer.MIN_VALUE;
+//			for (int j = i; j < i + k; j++) {
+//				if (maxNumber < list.get(j)) {
+//					maxNumber = list.get(j);
+//				}
+//			}
+//			System.out.println(maxNumber + " ");
+//
+//		}
+
+		/**
+		 * 
+		 * 
+		 * Problem 4.3: Recent Counter (Advanced) Difficulty: Hard
+		 * 
+		 * Problem Statement: Implement a RecentCounter that counts recent requests
+		 * within 3000ms. For each timestamp T, return count of requests in range
+		 * [T-3000, T].
+		 * 
+		 * 
+		 * 
+		 * Sample Input:
+		 * 
+		 * 5 1 100 3001 3002 6000 Sample Output:
+		 * 
+		 * 1 2 3 3 1
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
 	}
 }
