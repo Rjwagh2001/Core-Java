@@ -1,5 +1,9 @@
 package com.collections;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class DSAProblemSolving {
 
 	public void run() {
@@ -448,25 +452,414 @@ public class DSAProblemSolving {
 		 * 
 		 */
 
-		int arr[] = { 7, 1, 5, 3, 6, 4 };
-		int n = arr.length;
+//		int arr[] = { 2, 1, 4 };
+//		int n = arr.length;
+//
+//		int finalmax = Integer.MIN_VALUE;
+//		int start = 0;
+//		int end = n - 1;
+//
+//		while (start < end) {
+//
+//			if (arr[start] > arr[end]) {
+//				start++;
+//			} else {
+//				int max = arr[end] - arr[start];
+//				finalmax = Math.max(max, finalmax);
+//				end--;
+//			}
+//		}
+//
+//		System.out.println(finalmax);
 
-		int finalmax = Integer.MIN_VALUE;
-		int start = 0;
-		int end = n - 1;
+		/**
+		 * 
+		 * 
+		 * 
+		 * 
+		 * Problem Statement: Given an integer array arr, find the contiguous subarray
+		 * (containing at least one number) which has the largest sum and returns its
+		 * sum and prints the subarray.
+		 * 
+		 * Examples Example 1:
+		 * 
+		 * Input: arr = [-2,1,-3,4,-1,2,1,-5,4]
+		 * 
+		 * Output: 6
+		 * 
+		 * Explanation: [4,-1,2,1] has the largest sum = 6.
+		 * 
+		 * Examples 2:
+		 * 
+		 * Input: arr = [1]
+		 * 
+		 * Output: 1
+		 * 
+		 * Explanation: Array has only one element and which is giving positive sum of
+		 * 1.
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
 
-		while (start < end) {
+		// Solve Above Example Again
 
-			if (arr[start] > arr[end]) {
-				start++;
+		/**
+		 * 
+		 * 
+		 * 
+		 * Problem Statement: Given an array, print all the elements which are leaders.
+		 * A Leader is an element that is greater than all of the elements on its right
+		 * side in the array.
+		 * 
+		 * Examples
+		 * 
+		 * Example 1:
+		 * 
+		 * Input: arr = [4, 7, 1, 0] Output: 7 1 0
+		 * 
+		 * Explanation: Rightmost element is always a leader. 7 and 1 are greater than
+		 * the elements in their right side.
+		 * 
+		 * Example 2:
+		 * 
+		 * Input: arr = [10, 22, 12, 3,0, 6] Output: 22 12 6
+		 * 
+		 * Explanation: 6 is a leader. In addition to that, 12 is greater than all the
+		 * elements in its right side (3, 0, 6), also 22 is greater than 12, 3, 0, 6.
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		int arr[] = { 10, 22, 12, 3, 0, 6 };
+//		int n = arr.length;
+//
+//		ArrayList<Integer> ans = new ArrayList<Integer>();
+//
+//		for (int i = 0; i < n - 1; i++) {
+//
+//			int temp = arr[i];
+//			int max = Integer.MIN_VALUE;
+//			for (int j = i + 1; j < n; j++) {
+//				if (max < arr[j]) {
+//					max = arr[j];
+//				}
+//
+//			}
+//
+//			System.out.println(max + " " + temp + " ");
+//
+//			if (temp > max) {
+//				ans.add(temp);
+//
+//			}
+//
+//		}
+//
+//		if (n >= 1) {
+//			ans.add(arr[n - 1]);
+//
+//		}
+//		System.out.println(ans + " ");
+
+		// second approach
+
+//		for (int i = 0; i < n; i++) {
+//		    boolean leader = true;
+//
+//		    //Checking whether arr[i] is greater than all 
+//		    //the elements in its right side
+//		    for (int j = i + 1; j < n; j++)
+//		      if (arr[j] > arr[i]) {
+//		          
+//		        // If any element found is greater than current leader
+//		        // curr element is not the leader.
+//		        leader = false;
+//		        break;
+//		      }
+//
+//		    // Push all the leaders in ans array.
+//		    if (leader)
+//		    ans.add(arr[i]);
+
+		// Optimized way :
+
+//		int arr[] = { 10, 22, 12, 3, 0, 6 };
+//		int n = arr.length;
+//
+//		ArrayList<Integer> ans = new ArrayList<Integer>();
+//
+//		int max = arr[n - 1];
+//
+//		ans.add(arr[n - 1]);
+//
+//		for (int i = n - 2; i >= 0; i--)
+//			if (arr[i] > max) {
+//				ans.add(arr[i]);
+//				max = arr[i];
+//			}
+//
+//		System.out.println(ans + " ");
+
+		/*
+		 * 
+		 * 
+		 * 
+		 * Problem Statement: You are given an array of ‘N’ integers. You need to find
+		 * the length of the longest sequence which contains the consecutive elements.
+		 * 
+		 * Examples
+		 * 
+		 * Example 1:
+		 * 
+		 * Input: [100, 200, 1, 3, 2, 4]
+		 * 
+		 * Output: 4
+		 * 
+		 * Explanation: The longest consecutive subsequence is 1, 2, 3, and 4.
+		 * 
+		 * Input: [3, 8, 5, 7, 6]
+		 * 
+		 * Output: 4
+		 * 
+		 * Explanation: The longest consecutive subsequence is 5, 6, 7, and 8.
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+//		ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(100, 200, 1, 3, 2, 4));
+//		int n = arr.size();
+//
+//		ArrayList<Integer> ans = new ArrayList<Integer>();
+//
+//		Collections.sort(arr);
+//
+//		int lastElement = 0;
+//		int first = 0;
+//
+//		for (int i = 0; i < n - 1; i++) {
+//
+//			if ((arr.get(i + 1) - arr.get(i)) == 1) {
+//				lastElement = i + 1;
+//			}
+//
+//			if ((arr.get(i + 1) - arr.get(i)) == 1) {
+//				first = i;
+//			}
+//		}
+//
+//		System.out.println(first + "  " + lastElement);
+
+		/*
+		 * 
+		 * 
+		 * Problem Statement: Given a matrix, your task is to rotate the matrix 90
+		 * degrees clockwise.
+		 * 
+		 * Note: Rotate matrix 90 degrees anticlockwise
+		 * 
+		 * Examples Example 1:
+		 * 
+		 * Input: [[1,2,3],[4,5,6],[7,8,9]]
+		 * 
+		 * Output: [[7,4,1],[8,5,2],[9,6,3]]
+		 * 
+		 * Explanation: Rotate the matrix simply by 90 degree clockwise and return the
+		 * matrix.
+		 * 
+		 * Example 2:
+		 * 
+		 * Input: [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+		 * 
+		 * Output:[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
+		 * 
+		 * Explanation: Rotate the matrix simply by 90 degree clockwise and return the
+		 * matrix
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+		/**
+		 * 
+		 * Time Complexity: 0(N*2) Space Complexity:0(N*M)
+		 * 
+		 */
+
+//		ArrayList<ArrayList<Integer>> nums = new ArrayList<ArrayList<Integer>>();
+//		Scanner sc = new Scanner(System.in);
+//
+//		System.out.print("Enter the number of inner ArrayLists (n): ");
+//		int n = sc.nextInt();
+//
+//		for (int i = 0; i < n; i++) {
+//			int sizeOfArray = sc.nextInt();
+//			ArrayList<Integer> tempInner = new ArrayList<Integer>();
+//
+//			for (int j = 0; j < sizeOfArray; j++) {
+//				tempInner.add(sc.nextInt());
+//			}
+//			nums.add(tempInner);
+//		}
+//
+//		// deep copy an ArrayList of ArrayLists
+//		ArrayList<ArrayList<Integer>> temp = new ArrayList<ArrayList<Integer>>();
+//		for (ArrayList<Integer> innerList : nums) {
+//			temp.add(new ArrayList<>(innerList));
+//		}
+//
+//		for (int i = 0; i < temp.size(); i++) {
+//			for (int j = 0; j < temp.get(i).size(); j++) {
+//				int value = temp.get(n - 1 - j).get(i);
+//				nums.get(i).set(j, value);
+//			}
+//		}
+//
+//		System.out.println("The original array is: " + nums);
+//		System.out.println("The copied array is: " + temp);
+
+		// Using Transpose of Matrix and reverse to get space complexity 0(1) and time
+		// as same 0(N*2)
+
+//		// Rotate the matrix by 90° clockwise in-place
+//		for (int i = 0; i < n; i++) {
+//		    for (int j = i; j < n; j++) {
+//		        // Transpose: swap (i,j) with (j,i)
+//		        int temp = nums.get(i).get(j);
+//		        nums.get(i).set(j, nums.get(j).get(i));
+//		        nums.get(j).set(i, temp);
+//		    }
+//		}
+//
+//		// Reverse each row
+//		for (int i = 0; i < n; i++) {
+//		    Collections.reverse(nums.get(i));
+//		}
+
+		/*
+		 * 
+		 * 
+		 * 
+		 * 
+		 * Problem Statement: Given a Matrix, print the given matrix in spiral order.
+		 * 
+		 * Examples:
+		 * 
+		 * Example 1: Input: Matrix[][] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11,
+		 * 12 }, { 13, 14, 15, 16 } }
+		 * 
+		 * Outhput: 1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10. Explanation:
+		 * The output of matrix in spiral form.
+		 * 
+		 * Example 2: Input: Matrix[][] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }
+		 * 
+		 * Output: 1, 2, 3, 6, 9, 8, 7, 4, 5. Explanation: The output of matrix in
+		 * spiral form.
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+
+		/**
+		 * 
+		 * 
+		 * Time Complexity : Space Complexity :
+		 * 
+		 * 
+		 */
+
+		/*
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * Problem Statement: Given an array of integers and an integer k, return the
+		 * total number of subarrays whose sum equals k.
+		 * 
+		 * A subarray is a contiguous non-empty sequence of elements within an array.
+		 * 
+		 * Pre-requisite: Longest subarray with given sum
+		 * 
+		 * Examples
+		 * 
+		 * Example 1: Input Format: N = 4, array[] = {3, 1, 2, 4}, k = 6 Result: 2
+		 * Explanation: The subarrays that sum up to 6 are [3, 1, 2] and [2, 4].
+		 * 
+		 * Example 2: Input Format: N = 3, array[] = {1,2,3}, k = 3 Result: 2
+		 * Explanation: The subarrays that sum up to 3 are [1, 2], and [3].
+		 */
+
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Integer> nums = new ArrayList<Integer>(Arrays.asList(1, 2, 7, 5, 5, 10, 5, 3, 2, 7, 1));
+		int findValue = sc.nextInt();
+		int n = nums.size();
+
+		int finalCount = 0;
+		int i = 0;
+		int j = 0;
+		int sum = 0;
+		while (j < n) {
+			sum += nums.get(j);
+			System.out.println("For j is :" + j + " " + sum);
+			if (sum == findValue) {
+				finalCount++;
+
+				if (nums.get(j + 1) + nums.get(j) < findValue && j != n - 1) {
+					sum = nums.get(j);
+					j++;
+				} else {
+
+					sum = 0;
+					j++;
+				}
+
 			} else {
-				int max = arr[end] - arr[start];
-				finalmax = Math.max(max, finalmax);
-				end--;
+				j++;
 			}
+
 		}
 
-		System.out.println(finalmax);
-	}
+		System.out.println("final Count is:" + finalCount);
 
+	}
 }
