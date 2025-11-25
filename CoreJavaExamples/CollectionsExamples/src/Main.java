@@ -255,12 +255,15 @@ public class Main {
 		 * 
 		 */
 
+		// Calling for LinkedList Problems
 //		LinkedListProblemsSolution start2 = new LinkedListProblemsSolution();
 //		start2.run();
-//
+
+		// Calling for ArrayList Problems
 //		ArrayListProblemsSolution starting = new ArrayListProblemsSolution();
 //		starting.run();
 
+		// Calling for DSA Problems
 		DSAProblemSolving start1 = new DSAProblemSolving();
 		start1.run();
 
